@@ -1,2 +1,7 @@
 "# Data_Analysis_Project" 
-Link Dataset: https://www.kaggle.com/datasets/jackdaoud/marketing-data?fbclid=IwAR19lI24N3LnlMVrKE5K6pxbnj48hJ68YG4dM3LNvBIR5YXsmUFROxmoYmM
+Link Dataset: https://www.kaggle.com/code/jamestollefson/modeling-the-business-cost-of-retention
+# Hướng dẫn chạy app
+1. Cài đặt PyQt5
+2. Chạy cmd, pip install PyQt5
+3. Chạy visual, trong extension tải python + power shell
+4. Chỉnh sửa file trong def train, kéo thả sử dụng shift.
