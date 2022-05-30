@@ -28,13 +28,11 @@ def train() -> None:
     df_filtered.dropna(inplace=True)
     df_filtered.reset_index(drop=True, inplace=True)
     dataset = df_filtered.copy()
-    accuracies = {}
-    times = {}
     from sklearn.preprocessing import LabelEncoder
     le = LabelEncoder()
     for col in dataset.columns[ [i == object for i in dataset.dtypes] ]:
         dataset.loc[:,col] = le.fit_transform(dataset[col])
-    dataset = dataset[['MonthlyIncome', 'Age','TotalWorkingYears', 'MonthlyRate', 'DailyRate', 'OverTime', 'Attrition']]
+    dataset = dataset[['MonthlyIncome', 'TotalWorkingYears', 'MonthlyRate', 'DailyRate', 'OverTime', 'Attrition']]
  
     x = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
@@ -149,13 +147,13 @@ class Ui_MainWindow(object):
         font.setKerning(False)
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(30, 200, 111, 31))
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.label_6.setFont(font)
-        self.label_6.setObjectName("label_6")
-        font.setKerning(False)
+        # self.label_6 = QtWidgets.QLabel(self.centralwidget)
+        # self.label_6.setGeometry(QtCore.QRect(30, 200, 111, 31))
+        # font = QtGui.QFont()
+        # font.setPointSize(14)
+        # self.label_6.setFont(font)
+        # self.label_6.setObjectName("label_6")
+        # font.setKerning(False)
         # self.label.setFont(font)
         # self.label.setAlignment(QtCore.Qt.AlignCenter)
         # self.label.setObjectName("label_8")
@@ -199,9 +197,9 @@ class Ui_MainWindow(object):
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(50, 360, 251, 71))
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_7.setGeometry(QtCore.QRect(150, 230, 611, 31))
-        self.lineEdit_7.setObjectName("lineEdit_7")
+        # self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
+        # self.lineEdit_7.setGeometry(QtCore.QRect(150, 230, 611, 31))
+        # self.lineEdit_7.setObjectName("lineEdit_7")
         # self.lineEdit_8 = QtWidgets.QLineEdit(self.centralwidget)
         # self.lineEdit_8.setGeometry(QtCore.QRect(150, 260, 611, 31))
         # self.lineEdit_8.setObjectName("lineEdit_8")
@@ -225,16 +223,16 @@ class Ui_MainWindow(object):
         font.setPointSize(32)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setObjectName("pushButton_2")
-        self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_6.setGeometry(QtCore.QRect(150, 200, 611, 31))
-        self.lineEdit_6.setObjectName("lineEdit_6")
-        self.label_7 = QtWidgets.QLabel(self.centralwidget)
-        self.label_7.setGeometry(QtCore.QRect(30, 230, 111, 31))
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        font.setKerning(False)
-        self.label_7.setFont(font)
-        self.label_7.setObjectName("label_7")
+        # self.lineEdit_6 = QtWidgets.QLineEdit(self.centralwidget)
+        # self.lineEdit_6.setGeometry(QtCore.QRect(150, 200, 611, 31))
+        # self.lineEdit_6.setObjectName("lineEdit_6")
+        # self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        # self.label_7.setGeometry(QtCore.QRect(30, 230, 111, 31))
+        # font = QtGui.QFont()
+        # font.setPointSize(14)
+        # font.setKerning(False)
+        # self.label_7.setFont(font)
+        # self.label_7.setObjectName("label_7")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -250,18 +248,17 @@ class Ui_MainWindow(object):
         self.pushButton.clicked.connect(self.Crun)
         self.pushButton_2.clicked.connect(self.Clr)
         # train()
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Phần mềm dự đoán"))
-        self.label.setText(_translate("MainWindow", "DỰ ĐOÁN KHẢ NĂNG MẮC BỆNH TIM"))
-        self.label_1.setText(_translate("MainWindow", "age"))
-        self.label_2.setText(_translate("MainWindow", "cp"))
-        self.label_3.setText(_translate("MainWindow", "trestbps"))
-        self.label_4.setText(_translate("MainWindow", "chol"))
-        self.label_5.setText(_translate("MainWindow", "thalach"))
-        self.label_6.setText(_translate("MainWindow", "oldpeak"))
-        self.label_7.setText(_translate("MainWindow", "slope"))
+        self.label.setText(_translate("MainWindow", "DỰ ĐOÁN KHẢ NĂNG TIÊU HAO CHI PHÍ KINH DOANH"))
+        self.label_1.setText(_translate("MainWindow", "MonthlyIncome"))
+        self.label_2.setText(_translate("MainWindow", "TotalWorkingYears"))
+        self.label_3.setText(_translate("MainWindow", "MonthlyRate"))
+        self.label_4.setText(_translate("MainWindow", "DailyRate"))
+        self.label_5.setText(_translate("MainWindow", "OverTime"))
+        # self.label_6.setText(_translate("MainWindow", "oldpeak"))
+        # self.label_7.setText(_translate("MainWindow", "slope"))
         # self.label_9.setText(_translate("MainWindow", "sex"))
         # self.label_10.setText(_translate("MainWindow", "slope"))
         self.pushButton.setText(_translate("MainWindow", "CHẠY"))
@@ -273,16 +270,15 @@ class Ui_MainWindow(object):
         self.lineEdit_3.clear()
         self.lineEdit_4.clear()
         self.lineEdit_5.clear()
-        self.lineEdit_6.clear()
-        self.lineEdit_7.clear()
+        # self.lineEdit_6.clear()
+        # self.lineEdit_7.clear()
         # self.lineEdit_8.clear()
         # self.lineEdit_9.clear()
         # self.lineEdit_10.clear()
     def Crun(self) -> None:
-        my_dict =   {"age":float(self.lineEdit_1.text()), "cp":float(self.lineEdit_2.text()), "trestbps":float(self.lineEdit_3.text())
-        , "chol":float(self.lineEdit_4.text()), "thalach":float(self.lineEdit_5.text()), "oldpeak":float(self.lineEdit_6.text()), 
-        "slope":float(self.lineEdit_7.text())} 
-        t=str('Bệnh nhân')
+        my_dict =   {"MonthlyIncome":float(self.lineEdit_1.text()), "TotalWorkingYears":float(self.lineEdit_2.text()), "MonthlyRate":float(self.lineEdit_3.text())
+        , "DailyRate":float(self.lineEdit_4.text()), "OverTime":float(self.lineEdit_5.text())} 
+        t=str('Doanh nghiệp')
         print(my_dict)
     
         output = check_input(my_dict)
@@ -293,11 +289,11 @@ class Ui_MainWindow(object):
         a = ""
         if output == 0:
             a="KHÔNG CÓ KHẢ NĂNG"
-            msg.setInformativeText(" {} {}  bị mắc bệnh tim".format(t,str(a)))
+            msg.setInformativeText(" {} {}  tiêu hao chi phí kinh doanh".format(t,str(a)))
             
         elif output ==1:
             a="CÓ KHẢ NĂNG"
-            msg.setInformativeText(" {} {}  bị mắc bệnh tim".format(t,str(a)))
+            msg.setInformativeText(" {} {}  tiêu hao chi phí kinh doanh".format(t,str(a)))
         msg.setWindowTitle("Kết quả")
         msg.exec_() 
     
