@@ -5,3 +5,5 @@ Link Dataset: https://www.kaggle.com/code/jamestollefson/modeling-the-business-c
 2. Chạy cmd, pip install PyQt5
 3. Chạy visual, trong extension tải python + power shell
 4. Chỉnh sửa file trong def train, kéo thả sử dụng shift.
+* Lưu ý: Khi không chạy được, có thể chưa có file R, hãy check kĩ lại file R.
+*  Thử trên các tập dữ liệu đã đúng hết, có thể check thêm.
