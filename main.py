@@ -229,7 +229,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Phần mềm dự đoán"))
-        self.label.setText(_translate("MainWindow", "DỰ ĐOÁN KHẢ NĂNG TIÊU HAO CHI PHÍ KINH DOANH"))
+        self.label.setText(_translate("MainWindow", "DỰ ĐOÁN KHẢ NĂNG THIẾU HỤT NHÂN SỰ CỦA CÔNG TY"))
         self.label_1.setText(_translate("MainWindow", "MonthlyIncome"))
         self.label_2.setText(_translate("MainWindow", "TotalWorkingYears"))
         self.label_3.setText(_translate("MainWindow", "MonthlyRate"))
@@ -247,7 +247,7 @@ class Ui_MainWindow(object):
     def Crun(self) -> None:
         my_dict =   {"MonthlyIncome":float(self.lineEdit_1.text()), "TotalWorkingYears":float(self.lineEdit_2.text()), "MonthlyRate":float(self.lineEdit_3.text())
         , "DailyRate":float(self.lineEdit_4.text()), "OverTime":float(self.lineEdit_5.text())} 
-        t=str('Nhân viên')
+        t=str('Công Ty')
         print(my_dict)
     
         output = check_input(my_dict)
@@ -258,11 +258,11 @@ class Ui_MainWindow(object):
         a = ""
         if output == 0:
             a="KHÔNG CÓ KHẢ NĂNG"
-            msg.setInformativeText(" {} {} tiêu hao chi phí kinh doanh của công ty".format(t,str(a)))
+            msg.setInformativeText(" {} {} thiếu hụt nhân sự".format(t,str(a)))
             
         elif output ==1:
             a="CÓ KHẢ NĂNG"
-            msg.setInformativeText(" {} {} tiêu hao chi phí kinh doanh của công ty".format(t,str(a)))
+            msg.setInformativeText(" {} {} thiếu hụt nhân sự".format(t,str(a)))
         msg.setWindowTitle("Kết quả")
         msg.exec_() 
     
